@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHARKI-CHAT</title>
+</head>
+<body>
+  <h1>Charki-Chat</h1>
+  <form id="form">
+    <input type="text" name="user" id="user" value="usuario"><br>
+    <input type="text" name="msg" id="msg" value="mensages">
+    <input type="submit" value="enviar">
+  </form>
+  <div class="">
+    <p id="mensages"></p>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/index.js"></script>
+</body>
+</html>
+<style>
+  .der {
+    float: right;
+  }
+</style>
