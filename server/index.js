@@ -8,6 +8,9 @@ app.set('port', 4581)
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/vistas/index.html');
 });
+app.get('/qr', (req, res) => {
+  res.sendFile(__dirname + '/vistas/readqr.html');
+});
 
 require('./sockets')(io);
 
