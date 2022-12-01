@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/data" method="post" enctype="multipart/form-data">
+  <input type="file" name="archivos" id="archivos" multiple>
+  <input type="submit" value="send">
+</form>
+<div id="lista"></div>
+<br>
+<div id="total"></div>
+</body>
+</html>
+<script>
+  document.getElementById('archivos').addEventListener('change',(e)=>{
+    var lista = document.getElementById('lista');
+    var total = document.getElementById('total');
+    var num = 0;
+    const data = e.target.files
+    for (let rr = 0; rr < data.length; rr++) {
+      const element = data[rr];
+      num = num + ((element.size/1024)/1024)
+      //lista.innerHTML += `<p>${element.name}  ${((element.size/1024)/1024).toFixed(2)}MB</p>`
+    }
+    if(num>10)alert('Se Sobrepaso el limite de 10MB.')
+    total.innerHTML = num.toFixed(1)+'MB de 10MB'
+  })
+</script>
