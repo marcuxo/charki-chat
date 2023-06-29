@@ -17,10 +17,22 @@ socket.on('msg1', (txt) => {
     var txt2 = document.getElementById('mensages');
     //console.log(txt.id);
     if(txt.user === usert.value){
-      txt2.innerHTML += `<small class="der">${txt.user}</small><br>
-      <small class="der">${txt.mensage}</small><br>`
+      console.log("msg_1")
+      txt2.innerHTML += `
+      <div class="col-12 d-flex justify-content-end">
+        <div class="card_msg text-wrap">
+          <small class="float-right"><b>${txt.user}</b></small><br>
+          <small>${txt.mensage}</small>
+        </div>
+      </div><br>`
     }else{
-      txt2.innerHTML += `<small>${txt.user}</small><br>
-      <small>${txt.mensage}</small><br>`
+      console.log("msg_2")
+      txt2.innerHTML += `
+      <div class="col-12 d-flex">
+        <div class="card_msg text-wrap">
+          <small><b>${txt.user}</b></small><br>
+          <small>${txt.mensage}</small>
+        </div>
+      </div><br>`
     }
   });

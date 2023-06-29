@@ -19,7 +19,7 @@ app.get('/mf', (req, res) => {
   res.sendFile(__dirname + '/vistas/multifile.html');
 });
 /**
- * @param files recive como parametro un archivo
+ * @param files recibe como parametro un archivo
  * el cual lo almacena en la carpeta temporal y luego lo puede usar
  */
 app.post('/data', async(req, res)=>{
