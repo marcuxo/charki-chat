@@ -1,14 +1,29 @@
 var socket = io();
-var formt = document.getElementById('form');
+var formt = document.getElementById('btn-send');
 var msgt = document.getElementById('msg');
 var usert = document.getElementById('user');
-formt.addEventListener('submit', (e)=> {
-  e.preventDefault();
-  var data = {
-    mensage: msgt.value,
-    user: usert.value
+var cont_msg = document.getElementById('cont_msg')
+
+const formatScroll = () => {
+  var cont_msg = document.getElementById('cont_msg')
+  console.log(cont_msg.scrollHeight,cont_msg.clientHeight);
+  cont_msg.scrollTop = cont_msg.scrollHeight - cont_msg.clientHeight;
+}
+
+formt.addEventListener('click', (e)=> {
+  // e.preventDefault();
+  if(msgt.value !== ''){
+    var data = {
+      mensage: msgt.value,
+      user: usert.value
+    }
+    socket.emit('msg1', data)
+    msgt.value = ''
+    
+    formatScroll()
   }
-  socket.emit('msg1', data)
+  return
+
 });
 socket.on('connection', (chat) => {
   console.log(chat);
@@ -25,7 +40,9 @@ socket.on('msg1', (txt) => {
           <small>${txt.mensage}</small>
         </div>
       </div><br>`
+      formatScroll()
     }else{
+      cont_msg.scrollTop = cont_msg.scrollHeight;
       console.log("msg_2")
       txt2.innerHTML += `
       <div class="col-12 d-flex">
@@ -34,5 +51,6 @@ socket.on('msg1', (txt) => {
           <small>${txt.mensage}</small>
         </div>
       </div><br>`
+      formatScroll()
     }
   });

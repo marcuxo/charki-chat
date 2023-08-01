@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-CL">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +7,37 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-  <h1>Charki-Chat</h1>
-  <form id="form">
-    <input type="text" name="user" id="user" value="usuario"><br>
-    <input type="text" name="msg" id="msg" value="mensages">
-    <input type="submit" value="enviar">
-  </form>
-  <div class="container">
+  <!-- <form id="form"> -->
+    <!-- <input class="form-control form-control-sm" type="text" name="user" id="user" value="usuario"><br> -->
+    <!-- <textarea class="form-control form-control-sm" name="msg" rows="1" id="msg" placeholder="mensages"></textarea>
+    <input class="btn btn-sm btn-success" type="submit" value="enviar 💬"> -->
+  <!-- </form> -->
+  <!-- <div class="container">
     <div class="row" id="mensages">
+    </div>
+  </div> -->
+  <div class="container-fluid full-wide">
+    <div class="row">
+      <div class="col-12">
+        <h1>Charki-Chat</h1>
+      </div>
+      <div class="col-12">
+        <div class="container-fluid contenedor_msg" id="cont_msg">
+          <div class="row" id="mensages">
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-9 pt-2">
+            <input class="form-control form-control-sm" type="hidden" name="user" id="user" value="usuario">
+            <textarea class="form-control form-control-sm" name="msg" rows="1" id="msg" placeholder="mensages"></textarea>
+          </div>
+          <div class="col-12 col-md-3 pt-2">
+            <button class="btn btn-sm btn-success w-100" id="btn-send">enviar 💬</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <script src="/socket.io/socket.io.js"></script>
@@ -31,6 +54,14 @@
     padding-left: 5px;
     padding-right: 5px;
     border-radius: 3px;
-    
+  }
+  .full-wide {
+    height: 80vh !important;
+  }
+  .contenedor_msg {
+    height: 60vh;
+    /* overflow-y: scroll; */
+    overflow-x: hidden;
+  overflow-y: visible;
   }
 </style>
